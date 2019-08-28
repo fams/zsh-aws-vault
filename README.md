@@ -65,6 +65,10 @@ Produces this segment in my prompt:
 
 ![screenshot of agnoster theme with aws-vault segment](https://i.imgur.com/BLE0QXg.png)
 
+This will produce a prompt to use with 
+[powerline10k theme] (https://https://github.com/romkatv/powerlevel10k)
+too. To enable it, edit POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS var in $HOME/.p10k.zsh and add aws-vault
+
 #### Prompt Customization
 
 You can customize the prompt segment behavior by overriding these variables:

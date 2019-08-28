@@ -9,7 +9,7 @@ AWS_VAULT_PL_BROWSER=${AWS_VAULT_PL_BROWSER:-''}
 # Aliases                                                            #
 #--------------------------------------------------------------------#
 alias av='aws-vault'
-alias ave='aws-vault exec'
+alias ave='aws-vault exec --assume-role-ttl=60m'
 alias avl='aws-vault login'
 alias avs='aws-vault server'
 alias avll='avl -s'
@@ -80,6 +80,16 @@ function prompt_aws_vault_segment() {
       echo -n "$AWS_VAULT_PL_CHAR"
     else
       echo -n "$AWS_VAULT_PL_CHAR $AWS_VAULT"
+    fi
+  fi
+}
+
+function prompt_aws_vault() {
+  if [[ -n $AWS_VAULT ]]; then
+    if [ "$AWS_VAULT" = "$AWS_VAULT_PL_DEFAULT_PROFILE" ]; then
+      p10k segment -f 208 -i "$AWS_VAULT_PL_CHAR" -t 'AV'
+    else
+      p10k segment -f 208 -i "$AWS_VAULT_PL_CHAR" -t "$AWS_VAULT"
     fi
   fi
 }
